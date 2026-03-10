@@ -13,7 +13,7 @@
 body{
 margin:0;
 font-family:Arial;
-background:#f5f5f5;
+background:#f4f4f4;
 }
 
 header{
@@ -28,9 +28,9 @@ background:#990000;
 }
 
 nav ul{
-list-style:none;
 margin:0;
 padding:0;
+list-style:none;
 text-align:center;
 }
 
@@ -42,8 +42,8 @@ nav ul li a{
 display:block;
 padding:15px;
 color:white;
-font-weight:bold;
 text-decoration:none;
+font-weight:bold;
 }
 
 nav ul li a:hover{
@@ -51,7 +51,8 @@ background:#d4af37;
 }
 
 section{
-padding:60px;
+display:none;
+padding:40px;
 background:white;
 margin:30px;
 }
@@ -70,6 +71,8 @@ text-align:center;
 padding:20px;
 }
 
+/* gia pha */
+
 .tree ul{
 padding-top:20px;
 position:relative;
@@ -78,17 +81,40 @@ position:relative;
 .tree li{
 list-style:none;
 text-align:center;
-position:relative;
-padding:20px 5px;
+padding:20px;
+display:inline-block;
 }
 
-.tree li::before{
-content:'';
-position:absolute;
-top:0;
-left:50%;
-border-left:2px solid #ccc;
-height:20px;
+/* gallery */
+
+.gallery{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(200px,1fr));
+gap:15px;
+}
+
+.gallery img{
+width:100%;
+border-radius:10px;
+}
+
+/* timeline */
+
+.timeline{
+border-left:4px solid #990000;
+padding-left:20px;
+}
+
+.timeline div{
+margin-bottom:20px;
+}
+
+/* search */
+
+#searchBox{
+padding:10px;
+width:300px;
+margin-bottom:20px;
 }
 
 </style>
@@ -108,20 +134,21 @@ height:20px;
 
 <ul>
 
-<li><a href="#trangchu">Trang chủ</a></li>
-<li><a href="#gioithieu">Giới thiệu</a></li>
-<li><a href="#giapha">Gia phả</a></li>
-<li><a href="#nhatho">Nhà thờ họ</a></li>
-<li><a href="#tintuc">Tin tức</a></li>
-<li><a href="#thuvien">Thư viện</a></li>
-<li><a href="#quy">Quỹ dòng họ</a></li>
-<li><a href="#lienhe">Liên hệ</a></li>
+<li><a href="#" onclick="showPage('home')">Trang chủ</a></li>
+<li><a href="#" onclick="showPage('giapha')">Gia phả</a></li>
+<li><a href="#" onclick="showPage('lichsu')">Lịch sử</a></li>
+<li><a href="#" onclick="showPage('thuvien')">Thư viện</a></li>
+<li><a href="#" onclick="showPage('lienhe')">Liên hệ</a></li>
 
 </ul>
 
 </nav>
 
-<section class="banner" id="trangchu">
+<!-- TRANG CHU -->
+
+<section id="home">
+
+<div class="banner">
 
 <h2>UỐNG NƯỚC NHỚ NGUỒN</h2>
 
@@ -130,54 +157,36 @@ Trang thông tin chính thức của
 Tộc Võ Văn – Làng Châu Xuân
 </p>
 
-</section>
+</div>
 
-<section id="gioithieu">
-
-<h2>Giới thiệu</h2>
+<h2>Chào mừng</h2>
 
 <p>
 
-Website được xây dựng nhằm lưu giữ lịch sử,
-gia phả và kết nối các thế hệ con cháu
-trong dòng tộc Võ Văn tại làng Châu Xuân.
+Website được xây dựng nhằm lưu giữ
+gia phả và lịch sử dòng họ.
 
 </p>
 
 </section>
 
+<!-- GIA PHA -->
+
 <section id="giapha">
 
-<h2>Gia phả dòng họ</h2>
+<h2>Cây Gia Phả</h2>
+
+<input type="text" id="searchBox" placeholder="Tìm tên..." onkeyup="searchName()">
 
 <div class="tree">
 
-<ul>
+<ul id="familyList">
 
-<li>
-Thủy Tổ
-
-<ul>
-
-<li>
-Võ Văn A
-
-<ul>
-
+<li>Thủy Tổ</li>
+<li>Võ Văn A</li>
 <li>Võ Văn B</li>
 <li>Võ Văn C</li>
-
-</ul>
-
-</li>
-
-<li>
-Võ Văn D
-</li>
-
-</ul>
-
-</li>
+<li>Võ Văn D</li>
 
 </ul>
 
@@ -185,60 +194,70 @@ Võ Văn D
 
 </section>
 
-<section id="nhatho">
+<!-- LICH SU -->
 
-<h2>Nhà thờ họ</h2>
+<section id="lichsu">
+
+<h2>Lịch sử dòng họ</h2>
+
+<div class="timeline">
+
+<div>
+
+<h3>1800</h3>
 
 <p>
-
-Nhà thờ họ là nơi thờ cúng tổ tiên
-và tổ chức các nghi lễ truyền thống
-của Tộc Võ Văn – Làng Châu Xuân.
+Tổ tiên dòng họ Võ Văn lập nghiệp tại
+làng Châu Xuân.
 
 </p>
 
+</div>
+
+<div>
+
+<h3>1950</h3>
+
+<p>
+Xây dựng nhà thờ họ.
+
+</p>
+
+</div>
+
+<div>
+
+<h3>2020</h3>
+
+<p>
+Tổ chức họp mặt con cháu toàn dòng họ.
+
+</p>
+
+</div>
+
+</div>
+
 </section>
 
-<section id="tintuc">
-
-<h2>Tin tức</h2>
-
-<ul>
-
-<li>Họp mặt dòng họ đầu năm</li>
-<li>Lễ giỗ tổ truyền thống</li>
-<li>Trao học bổng khuyến học</li>
-
-</ul>
-
-</section>
+<!-- THU VIEN -->
 
 <section id="thuvien">
 
 <h2>Thư viện hình ảnh</h2>
 
-<p>
+<div class="gallery">
 
-Nơi lưu trữ hình ảnh họp mặt dòng họ,
-lễ giỗ tổ và các hoạt động của con cháu.
+<img src="https://picsum.photos/400/300">
+<img src="https://picsum.photos/401/300">
+<img src="https://picsum.photos/402/300">
+<img src="https://picsum.photos/403/300">
 
-</p>
-
-</section>
-
-<section id="quy">
-
-<h2>Quỹ dòng họ</h2>
-
-<p>
-
-Quỹ dòng họ được lập nhằm hỗ trợ
-khuyến học và các hoạt động của
-Tộc Võ Văn.
-
-</p>
+</div>
 
 </section>
+
+<!-- LIEN HE -->
 
 <section id="lienhe">
 
@@ -246,8 +265,8 @@ Tộc Võ Văn.
 
 <p>
 
-Ban quản lý Tộc Võ Văn  
-Làng Châu Xuân  
+Ban quản lý  
+Tộc Võ Văn – Làng Châu Xuân
 
 </p>
 
@@ -262,6 +281,54 @@ Làng Châu Xuân
 </p>
 
 </footer>
+
+<script>
+
+/* chuyển trang */
+
+function showPage(page){
+
+var sections=document.querySelectorAll("section");
+
+sections.forEach(function(sec){
+
+sec.style.display="none";
+
+});
+
+document.getElementById(page).style.display="block";
+
+}
+
+showPage("home");
+
+/* tìm kiếm gia phả */
+
+function searchName(){
+
+var input=document.getElementById("searchBox").value.toLowerCase();
+
+var list=document.getElementById("familyList").getElementsByTagName("li");
+
+for(var i=0;i<list.length;i++){
+
+var name=list[i].innerText.toLowerCase();
+
+if(name.includes(input)){
+
+list[i].style.display="list-item";
+
+}else{
+
+list[i].style.display="none";
+
+}
+
+}
+
+}
+
+</script>
 
 </body>
 </html>

@@ -4,100 +4,88 @@
 <head>
 
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="viewport" content="width=device-width, initial-scale=1">
 
-<title>TỘC VÕ VĂN – LÀNG CHÂU XUÂN</title>
+<title>TỘC VÕ VĂN - LÀNG CHÂU XUÂN</title>
 
 <style>
 
 body{
 margin:0;
 font-family:Arial;
-background:#f5f5f5;
+background:#f4f4f4;
 }
 
 header{
-background:#8B0000;
+background:#7b0000;
 color:white;
 text-align:center;
-padding:30px;
-}
-
-header h1{
-margin:0;
-font-size:36px;
-}
-
-header p{
-margin-top:10px;
-font-size:18px;
+padding:20px;
 }
 
 nav{
-background:#b22222;
+background:#990000;
 }
 
 nav ul{
 margin:0;
 padding:0;
-display:flex;
-flex-wrap:wrap;
-justify-content:center;
 list-style:none;
+text-align:center;
 }
 
 nav ul li{
-padding:15px 25px;
-color:white;
-font-weight:bold;
-cursor:pointer;
+display:inline-block;
 }
 
-nav ul li:hover{
-background:#8B0000;
-}
-
-.section{
-display:none;
-max-width:1100px;
-margin:auto;
-background:white;
-margin-top:20px;
-padding:40px;
-border-radius:8px;
-box-shadow:0 0 10px rgba(0,0,0,0.1);
-line-height:1.7;
-}
-
-.active{
+nav ul li a{
 display:block;
-}
-
-h2{
-color:#8B0000;
-margin-top:0;
-}
-
-.news{
-display:grid;
-grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
-gap:20px;
-}
-
-.news-item{
-border:1px solid #ddd;
-border-radius:6px;
-overflow:hidden;
-background:white;
-}
-
-.news-item img{
-width:100%;
-}
-
-.news-item div{
 padding:15px;
+color:white;
+text-decoration:none;
+font-weight:bold;
 }
+
+nav ul li a:hover{
+background:#d4af37;
+}
+
+section{
+display:none;
+padding:40px;
+background:white;
+margin:30px;
+}
+
+.banner{
+background:#d4af37;
+color:white;
+text-align:center;
+padding:80px;
+}
+
+footer{
+background:#333;
+color:white;
+text-align:center;
+padding:20px;
+}
+
+/* gia pha */
+
+.tree ul{
+padding-top:20px;
+position:relative;
+}
+
+.tree li{
+list-style:none;
+text-align:center;
+padding:20px;
+display:inline-block;
+}
+
+/* gallery */
 
 .gallery{
 display:grid;
@@ -107,129 +95,29 @@ gap:15px;
 
 .gallery img{
 width:100%;
-border-radius:6px;
-cursor:pointer;
+border-radius:10px;
 }
 
-#lightbox{
-position:fixed;
-top:0;
-left:0;
-width:100%;
-height:100%;
-background:rgba(0,0,0,0.85);
-display:none;
-justify-content:center;
-align-items:center;
+/* timeline */
+
+.timeline{
+border-left:4px solid #990000;
+padding-left:20px;
 }
 
-#lightbox img{
-max-width:90%;
-max-height:80%;
+.timeline div{
+margin-bottom:20px;
 }
 
-input,textarea{
-width:100%;
+/* search */
+
+#searchBox{
 padding:10px;
-margin-top:10px;
-}
-
-button{
-padding:10px 20px;
-margin-top:10px;
-background:#8B0000;
-color:white;
-border:none;
-cursor:pointer;
-}
-
-footer{
-background:#8B0000;
-color:white;
-text-align:center;
-padding:15px;
-margin-top:40px;
+width:300px;
+margin-bottom:20px;
 }
 
 </style>
-
-<script>
-
-function showPage(id){
-
-document.querySelectorAll(".section").forEach(function(page){
-page.classList.remove("active")
-})
-
-document.getElementById(id).classList.add("active")
-
-}
-
-/* LOGIN ADMIN */
-
-function login(){
-
-var u=document.getElementById("user").value
-var p=document.getElementById("pass").value
-
-if(u=="admin" && p=="votoc123@"){
-
-alert("Đăng nhập thành công")
-
-showPage("admin")
-
-}else{
-
-alert("Sai tài khoản hoặc mật khẩu")
-
-}
-
-}
-
-/* SỬA GIỚI THIỆU */
-
-function saveIntro(){
-
-var text=document.getElementById("editIntro").value
-
-document.getElementById("intro").innerHTML=text
-
-alert("Đã cập nhật nội dung")
-
-}
-
-/* THÊM ẢNH */
-
-function addImage(){
-
-var link=document.getElementById("imglink").value
-
-var img=document.createElement("img")
-
-img.src=link
-
-img.onclick=function(){openImg(link)}
-
-document.getElementById("gallery").appendChild(img)
-
-}
-
-/* PHÓNG TO ẢNH */
-
-function openImg(src){
-
-document.getElementById("lightbox").style.display="flex"
-document.getElementById("lightimg").src=src
-
-}
-
-function closeImg(){
-
-document.getElementById("lightbox").style.display="none"
-
-}
-
-</script>
 
 </head>
 
@@ -237,9 +125,8 @@ document.getElementById("lightbox").style.display="none"
 
 <header>
 
-<h1>🏛 TỘC VÕ VĂN – LÀNG CHÂU XUÂN</h1>
-
-<p>Uống nước nhớ nguồn – Giữ gìn truyền thống gia tộc</p>
+<h1>TỘC VÕ VĂN</h1>
+<h3>LÀNG CHÂU XUÂN</h3>
 
 </header>
 
@@ -247,224 +134,201 @@ document.getElementById("lightbox").style.display="none"
 
 <ul>
 
-<li onclick="showPage('home')">Trang chủ</li>
-
-<li onclick="showPage('giapha')">Gia phả</li>
-
-<li onclick="showPage('tintuc')">Tin tức</li>
-
-<li onclick="showPage('thuvien')">Thư viện</li>
-
-<li onclick="showPage('quy')">Quỹ dòng họ</li>
-
-<li onclick="showPage('login')">Admin</li>
+<li><a href="#" onclick="showPage('home')">Trang chủ</a></li>
+<li><a href="#" onclick="showPage('giapha')">Gia phả</a></li>
+<li><a href="#" onclick="showPage('lichsu')">Lịch sử</a></li>
+<li><a href="#" onclick="showPage('thuvien')">Thư viện</a></li>
+<li><a href="#" onclick="showPage('lienhe')">Liên hệ</a></li>
 
 </ul>
 
 </nav>
 
-<!-- TRANG CHỦ -->
+<!-- TRANG CHU -->
 
-<section id="home" class="section active">
+<section id="home">
 
-<h2>GIỚI THIỆU TỘC VÕ VĂN – LÀNG CHÂU XUÂN</h2>
+<div class="banner">
 
-<div id="intro">
-
-<p>
-
-Trong truyền thống văn hóa tốt đẹp của dân tộc Việt Nam, việc tưởng nhớ tổ tiên, gìn giữ gia phong và phát huy truyền thống của dòng họ luôn là một giá trị thiêng liêng và cao quý.  
-Từ bao đời nay, các thế hệ con cháu luôn ghi nhớ lời dạy của cha ông:
-
-<b>“Uống nước nhớ nguồn – Ăn quả nhớ người trồng cây.”</b>
-
-</p>
+<h2>UỐNG NƯỚC NHỚ NGUỒN</h2>
 
 <p>
-
-Tộc Võ Văn tại làng Châu Xuân là một trong những dòng họ có lịch sử lâu đời tại địa phương.  
-Trải qua nhiều thế hệ hình thành và phát triển, tổ tiên dòng họ đã cần cù lao động, khai khẩn đất đai, xây dựng làng xóm và gây dựng nền tảng vững chắc cho con cháu đời sau.
-
-</p>
-
-<p>
-
-Qua bao biến đổi của thời gian và lịch sử, các thế hệ con cháu trong dòng họ luôn đoàn kết, yêu thương, giúp đỡ lẫn nhau, cùng nhau gìn giữ truyền thống tốt đẹp của gia tộc.
-
-</p>
-
-<p>
-
-Trang thông tin điện tử của Tộc Võ Văn – Làng Châu Xuân được xây dựng với mục đích:
-
-</p>
-
-<ul>
-
-<li>Lưu giữ và hệ thống hóa gia phả của dòng họ</li>
-
-<li>Ghi lại lịch sử hình thành và phát triển của tộc họ</li>
-
-<li>Cập nhật tin tức, hoạt động của dòng họ</li>
-
-<li>Lưu trữ hình ảnh và những kỷ niệm quý báu</li>
-
-<li>Kết nối con cháu trong và ngoài địa phương</li>
-
-</ul>
-
-<p>
-
-Đây cũng là nơi để các thế hệ con cháu cùng nhau hướng về cội nguồn, tri ân công đức tổ tiên và tiếp tục gìn giữ, phát huy những giá trị truyền thống tốt đẹp của dòng họ Võ Văn.
-
+Trang thông tin chính thức của
+Tộc Võ Văn – Làng Châu Xuân
 </p>
 
 </div>
 
+<h2>Chào mừng</h2>
+
+<p>
+
+Website được xây dựng nhằm lưu giữ
+gia phả và lịch sử dòng họ.
+
+</p>
+
 </section>
 
-<!-- GIA PHẢ -->
+<!-- GIA PHA -->
 
-<section id="giapha" class="section">
+<section id="giapha">
 
-<h2>CÂY GIA PHẢ DÒNG HỌ</h2>
+<h2>Cây Gia Phả</h2>
 
-<ul>
+<input type="text" id="searchBox" placeholder="Tìm tên..." onkeyup="searchName()">
 
-<li>Ông Tổ Võ Văn</li>
+<div class="tree">
+
+<ul id="familyList">
+
+<li>Thủy Tổ</li>
 <li>Võ Văn A</li>
 <li>Võ Văn B</li>
 <li>Võ Văn C</li>
+<li>Võ Văn D</li>
 
 </ul>
 
+</div>
+
 </section>
 
-<!-- TIN TỨC -->
+<!-- LICH SU -->
 
-<section id="tintuc" class="section">
+<section id="lichsu">
 
-<h2>TIN TỨC DÒNG HỌ</h2>
+<h2>Lịch sử dòng họ</h2>
 
-<div class="news">
-
-<div class="news-item">
-
-<img src="https://picsum.photos/400/200">
+<div class="timeline">
 
 <div>
 
-<h3>Họp mặt dòng họ</h3>
-
-<p>Tổ chức họp mặt con cháu tộc Võ Văn tại nhà thờ họ.</p>
-
-</div>
-
-</div>
-
-<div class="news-item">
-
-<img src="https://picsum.photos/401/200">
-
-<div>
-
-<h3>Trùng tu nhà thờ họ</h3>
-
-<p>Con cháu đóng góp xây dựng và tu sửa nhà thờ họ.</p>
-
-</div>
-
-</div>
-
-</div>
-
-</section>
-
-<!-- THƯ VIỆN -->
-
-<section id="thuvien" class="section">
-
-<h2>THƯ VIỆN HÌNH ẢNH</h2>
-
-<div id="gallery" class="gallery">
-
-<img src="https://picsum.photos/300/200" onclick="openImg(this.src)">
-<img src="https://picsum.photos/301/200" onclick="openImg(this.src)">
-<img src="https://picsum.photos/302/200" onclick="openImg(this.src)">
-
-</div>
-
-</section>
-
-<!-- QUỸ -->
-
-<section id="quy" class="section">
-
-<h2>QUỸ DÒNG HỌ</h2>
+<h3>1800</h3>
 
 <p>
-
-Quỹ dòng họ được lập ra nhằm phục vụ các hoạt động chung của dòng họ như:
+Tổ tiên dòng họ Võ Văn lập nghiệp tại
+làng Châu Xuân.
 
 </p>
 
-<ul>
+</div>
 
-<li>Tu sửa nhà thờ họ</li>
-<li>Tổ chức giỗ tổ</li>
-<li>Khuyến học cho con cháu</li>
-<li>Hỗ trợ các hoàn cảnh khó khăn trong dòng họ</li>
+<div>
 
-</ul>
+<h3>1950</h3>
 
-</section>
+<p>
+Xây dựng nhà thờ họ.
 
-<!-- LOGIN -->
-
-<section id="login" class="section">
-
-<h2>ĐĂNG NHẬP QUẢN TRỊ</h2>
-
-<input id="user" placeholder="Tên đăng nhập">
-
-<input id="pass" type="password" placeholder="Mật khẩu">
-
-<button onclick="login()">Đăng nhập</button>
-
-</section>
-
-<!-- ADMIN -->
-
-<section id="admin" class="section">
-
-<h2>QUẢN TRỊ WEBSITE</h2>
-
-<h3>Sửa nội dung giới thiệu</h3>
-
-<textarea id="editIntro" rows="8"></textarea>
-
-<button onclick="saveIntro()">Lưu nội dung</button>
-
-<h3>Thêm ảnh vào thư viện</h3>
-
-<input id="imglink" placeholder="Dán link ảnh">
-
-<button onclick="addImage()">Thêm ảnh</button>
-
-</section>
-
-<div id="lightbox" onclick="closeImg()">
-
-<img id="lightimg">
+</p>
 
 </div>
 
+<div>
+
+<h3>2020</h3>
+
+<p>
+Tổ chức họp mặt con cháu toàn dòng họ.
+
+</p>
+
+</div>
+
+</div>
+
+</section>
+
+<!-- THU VIEN -->
+
+<section id="thuvien">
+
+<h2>Thư viện hình ảnh</h2>
+
+<div class="gallery">
+
+<img src="https://picsum.photos/400/300">
+<img src="https://picsum.photos/401/300">
+<img src="https://picsum.photos/402/300">
+<img src="https://picsum.photos/403/300">
+
+</div>
+
+</section>
+
+<!-- LIEN HE -->
+
+<section id="lienhe">
+
+<h2>Liên hệ</h2>
+
+<p>
+
+Ban quản lý  
+Tộc Võ Văn – Làng Châu Xuân
+
+</p>
+
+</section>
+
 <footer>
 
-© 2026 TỘC VÕ VĂN – LÀNG CHÂU XUÂN
+<p>
+
+© 2026 TỘC VÕ VĂN - LÀNG CHÂU XUÂN
+
+</p>
 
 </footer>
 
-</body>
+<script>
 
+/* chuyển trang */
+
+function showPage(page){
+
+var sections=document.querySelectorAll("section");
+
+sections.forEach(function(sec){
+
+sec.style.display="none";
+
+});
+
+document.getElementById(page).style.display="block";
+
+}
+
+showPage("home");
+
+/* tìm kiếm gia phả */
+
+function searchName(){
+
+var input=document.getElementById("searchBox").value.toLowerCase();
+
+var list=document.getElementById("familyList").getElementsByTagName("li");
+
+for(var i=0;i<list.length;i++){
+
+var name=list[i].innerText.toLowerCase();
+
+if(name.includes(input)){
+
+list[i].style.display="list-item";
+
+}else{
+
+list[i].style.display="none";
+
+}
+
+}
+
+}
+
+</script>
+
+</body>
 </html>
